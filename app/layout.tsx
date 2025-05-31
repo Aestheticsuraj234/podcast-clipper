@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 
 
 import "./globals.css";
+import { ThemeProvider } from "@/components/providers/theme-providers";
 
 const poppins = Poppins({
   subsets:["latin"],
@@ -21,11 +22,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
       <body
-        className={`${poppins.className} antialiased`}
+        className={`${poppins.className} antialiased `}
       >
         {children}
       </body>
+      </ThemeProvider>
     </html>
   );
 }
