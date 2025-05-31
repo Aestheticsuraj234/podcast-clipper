@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { ArrowDown } from "lucide-react"
+import Link from "next/link"
 
 export function Hero() {
   return (
@@ -26,13 +27,14 @@ export function Hero() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+            <Link href={"/dashboard"} className="cursor-pointer">
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               Start Creating Clips
             </Button>
-            
+            </Link>
             <Button 
               variant="outline" 
               size="lg"

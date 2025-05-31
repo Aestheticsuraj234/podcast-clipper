@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 import UserButton from "@/feature/auth/components/user-button";
 import { useCurrentUser } from "@/feature/auth/hooks/use-current-user"
+import Link from "next/link";
 
 export function Navigation() {
   const user = useCurrentUser()
@@ -36,9 +37,12 @@ export function Navigation() {
        { user ? <UserButton/>:  <Button variant="outline" className="hidden sm:flex">
             Sign In
           </Button>}
-          <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
+          <Link href={"/dashboard"} className="cursor-pointer">
+                <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
             Get Started
           </Button>
+          </Link>
+    
         </div>
       </div>
     </nav>
