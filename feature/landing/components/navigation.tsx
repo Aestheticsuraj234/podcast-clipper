@@ -1,8 +1,12 @@
 
+"use client";
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
+import UserButton from "@/feature/auth/components/user-button";
+import { useCurrentUser } from "@/feature/auth/hooks/use-current-user"
 
 export function Navigation() {
+  const user = useCurrentUser()
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-gray-200/20 dark:border-gray-800/20">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -29,9 +33,9 @@ export function Navigation() {
 
         <div className="flex items-center space-x-4">
           <ThemeToggle />
-          <Button variant="outline" className="hidden sm:flex">
+       { user ? <UserButton/>:  <Button variant="outline" className="hidden sm:flex">
             Sign In
-          </Button>
+          </Button>}
           <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
             Get Started
           </Button>
